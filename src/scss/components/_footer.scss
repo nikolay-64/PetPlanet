@@ -1,0 +1,137 @@
+@use '../variables' as *;
+@use '../media' as *;
+
+.footer {
+	padding: 80px 32px;
+	background-color: $green;
+	background-image: url('/img/paw.svg');
+	background-repeat: no-repeat;
+	color: $light;
+
+	background-size: 375px;
+	background-position: left 41vw bottom -75px;
+
+	@include laptop {
+		padding: 50px 32px;
+		background-size: 311px;
+	}
+
+	@include tablet {
+		padding: 40px 32px;
+		background-size: 215px;
+		background-position: right 7vw bottom -45px;
+	}
+
+	@include mobile {
+		padding: 30px 0 24px;
+		background-size: 144px;
+		background-position: right -3vw bottom -30px;
+	}
+
+	&__container {
+		display: grid;
+		gap: 50px;
+		grid-template-areas:
+			'logo contacts'
+			'info contacts';
+
+		@include tablet {
+			gap: 82px 30px;
+		}
+
+		@include mobile {
+			gap: 0;
+			grid-template-areas:
+				'logo'
+				'contacts'
+				'info';
+		}
+	}
+
+	&__logo {
+		grid-area: logo;
+		width: 331px;
+		height: 57px;
+		margin-bottom: 50px;
+
+		@include tablet {
+			width: 200px;
+			height: 35px;
+		}
+
+		@include mobile {
+			margin-bottom: 32px;
+		}
+	}
+
+	&__info {
+		grid-area: info;
+		font-size: 16px;
+
+		@include mobile {
+			font-size: 12px;
+		}
+	}
+
+	&__copyright {
+		margin-bottom: 16px;
+	}
+
+	&__text {
+		margin-bottom: 3px;
+	}
+
+	&__item {
+		margin-bottom: 3px;
+		font-weight: 400;
+		line-height: 1.4;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__link {
+		display: inline-block;
+		transition: color 0.5s ease-in-out;
+		outline-offset: 3px;
+		&:hover {
+			color: $purple;
+		}
+		&:focus-visible {
+			outline-color: $carrot;
+		}
+
+		&:active {
+			color: $carrot;
+			outline-color: transparent;
+			opacity: 0.8;
+		}
+	}
+
+	&__contacts {
+		grid-area: contacts;
+		justify-self: end;
+		font-style: normal;
+
+		@include mobile {
+			margin-bottom: 66px;
+			justify-self: start;
+		}
+	}
+
+	&__email {
+		display: inline-block;
+		margin-bottom: 16px;
+
+		&:hover {
+			color: $carrot;
+		}
+	}
+
+	&__social-list {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+}
