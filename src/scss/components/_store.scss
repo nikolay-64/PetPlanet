@@ -9,11 +9,23 @@
 		align-items: center;
 		justify-content: space-between;
 		margin-bottom: 40px;
+
+		@include mobile {
+			flex-wrap: wrap;
+			justify-content: end;
+			gap: 30px;
+		}
 	}
 
 	&__categories {
 		display: flex;
 		gap: 28px;
+
+		@include mobile {
+			flex-grow: 1;
+			gap: 16px;
+			overflow-x: auto;
+		}
 	}
 
 	&__category-button {
@@ -47,11 +59,16 @@
 		display: block;
 		width: 28px;
 		height: 28px;
-		vertical-align: middle;
-
+		
 		@include bigscreen {
 			width: 32px;
 			height: 32px;
+		}
+
+		@include mobile {
+			display: flex;
+			justify-content: center;
+			align-items: end;
 		}
 	}
 
@@ -62,6 +79,14 @@
 		font-size: 12px;
 		line-height: 1;
 		color: $light;
+		
+		@include bigscreen {
+			vertical-align: middle;
+		}
+
+		@include mobile {
+			line-height: 1.6;
+		}
 	}
 
 	&__cart-icon {
@@ -94,5 +119,6 @@
 
 	&__item {
 		display: flex;
+		justify-self: center;
 	}
 }
